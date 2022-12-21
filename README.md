@@ -1,2 +1,2 @@
-# MovideCollectionManager
+# MovieCollectionManager
 Movie collection manager service
