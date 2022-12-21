@@ -1,1 +1,2 @@
 from movie_collection.controllers.user import UserController
+from movie_collection.controllers.movies import MoviesController
