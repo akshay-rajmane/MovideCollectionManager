@@ -1,3 +1,2 @@
-from django.shortcuts import render
-
-# Create your views here.
+from movie_collection.controllers.user import UserController
+from movie_collection.controllers.movies import MoviesController
