@@ -1,1 +1,1 @@
-from movie_collection.test.unit.custom_user import CustomUserTests
+from movie_collection.test.unit.user import UserTests
