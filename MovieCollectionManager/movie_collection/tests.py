@@ -1,3 +1,1 @@
-from django.test import TestCase
-
-# Create your tests here.
+from movie_collection.test.unit.custom_user import CustomUserTests
