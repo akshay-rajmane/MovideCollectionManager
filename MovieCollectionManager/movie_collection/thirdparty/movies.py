@@ -17,7 +17,7 @@ def get_movies(url: str = None):
 
     url = url or URL
     retries, connect_timeout, read_timeout = 0, CONNECT_TIMEOUT, READ_TIMEOUT
-    success, api_response = False, {"message": 'Service unavailable. Please try after sometime.'}
+    success, api_response = False, {'message': 'Service unavailable. Please try after sometime.'}
     while retries < MAX_RETRIES:
         try:
             response = requests.get(
@@ -43,7 +43,7 @@ def get_movies(url: str = None):
                 continue
             success, api_response = True, response.json()
 
-    if api_response and "error" in api_response:
-        api_response = {"message": api_response.get("error").get("message")}
+    if api_response and 'error' in api_response:
+        api_response = {'message': api_response.get('error').get('message')}
 
     return success, api_response

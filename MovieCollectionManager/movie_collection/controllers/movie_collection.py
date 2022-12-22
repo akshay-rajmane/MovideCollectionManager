@@ -43,19 +43,19 @@ def get_user_movie_collections(request):
     )
     if not success:
         return JSONResponse(
-            data={"is_success": success, 'message': response if response else 'Failed to fetch collections'},
+            data={'is_success': success, 'message': response if response else 'Failed to fetch collections'},
             status=500
         )
 
     response_data = {
-        "is_success": success,
-        "data": {
-            "collections": (
+        'is_success': success,
+        'data': {
+            'collections': (
                 movie_collection_serializer.MovieCollectionSerializerBasic(
-                    response.get("user_collections"), many=True
-                ).data if response.get("user_collections") else None
+                    response.get('user_collections'), many=True
+                ).data if response.get('user_collections') else None
             ),
-            "favourite_genres": response.get("top_3_genres")
+            'favourite_genres': response.get('top_3_genres')
         }
     }
     return JSONResponse(data=response_data, status=200)
@@ -91,9 +91,9 @@ def update_user_movie_collection(request, uuid):
         )
 
     if (
-        not request.data.get("title")
-        and not request.data.get("description")
-        and not request.data.get("movies")
+        not request.data.get('title')
+        and not request.data.get('description')
+        and not request.data.get('movies')
     ):
         return JSONResponse(
             data={'message': 'At least one of Title, Description or Movies is required'},
@@ -102,9 +102,9 @@ def update_user_movie_collection(request, uuid):
     success, response = movie_collection_repo.update_user_collection(
         user=request.user,
         uuid=uuid,
-        title=request.data.get("title"),
-        description=request.data.get("description"),
-        movies_data=request.data.get("movies"),
+        title=request.data.get('title'),
+        description=request.data.get('description'),
+        movies_data=request.data.get('movies'),
     )
     if not success:
         return JSONResponse(
@@ -140,17 +140,17 @@ def delete_user_movie_collection(request, uuid):
     )
 
 
-@api_view(["GET", "POST", "PUT", "DELETE"])
+@api_view(['GET', 'POST', 'PUT', 'DELETE'])
 @login_required
 def movie_collection(request, **kwargs):
-    if request.method == "GET":
-        if kwargs.get("uuid"):
-            return get_user_movie_collection_by_uuid(request, uuid=kwargs.get("uuid"))
+    if request.method == 'GET':
+        if kwargs.get('uuid'):
+            return get_user_movie_collection_by_uuid(request, uuid=kwargs.get('uuid'))
         return get_user_movie_collections(request)
-    if request.method == "POST":
+    if request.method == 'POST':
         return create_movie_collection(request)
-    if request.method == "PUT":
-        return update_user_movie_collection(request, uuid=kwargs.get("uuid"))
-    if request.method == "DELETE":
-        return delete_user_movie_collection(request, uuid=kwargs.get("uuid"))
+    if request.method == 'PUT':
+        return update_user_movie_collection(request, uuid=kwargs.get('uuid'))
+    if request.method == 'DELETE':
+        return delete_user_movie_collection(request, uuid=kwargs.get('uuid'))
     

@@ -18,7 +18,7 @@ def register(username: str, password: str) -> Tuple[bool, str]:
     """ Registers a new user and returns access token """
 
     if User.objects.filter(username=username).exists():
-        return False, "Username already exists. Please select another username or login"
+        return False, 'Username already exists. Please select another username or login'
 
     user = User.objects.create(username=username, password=password)
     user.set_password(password)
@@ -31,6 +31,6 @@ def login_user(username: str, password: str) -> Tuple[bool, str]:
 
     user = authenticate(username=username, password=password)
     if not user:
-        return False, "Invalid credentials"
+        return False, 'Invalid credentials'
 
     return True, get_auth_token(user=user)

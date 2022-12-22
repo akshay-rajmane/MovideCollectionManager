@@ -15,4 +15,4 @@ class UserAPITests(APITestCase):
         request_data['password'] = '1234'
         response = api_client.post(reverse('register-new-user'), data=request_data)
         self.assertEquals(response.status_code, 200)
-        self.assertIsNotNone(response.json().get("access_token"))
+        self.assertIsNotNone(response.json().get('access_token'))

@@ -6,15 +6,15 @@ from movie_collection.models import MovieCollection, Movie
 class MovieSerializer(ModelSerializer):
     genres = SerializerMethodField()
     def get_genres(self, movie):
-        return list(movie.genres.values_list("name", flat=True).distinct())
+        return list(movie.genres.values_list('name', flat=True).distinct())
 
     class Meta:
         model = Movie
         fields = (
-            "uuid",
-            "title",
-            "description",
-            "genres",
+            'uuid',
+            'title',
+            'description',
+            'genres',
         )
 
 
@@ -22,9 +22,9 @@ class MovieCollectionSerializerBasic(ModelSerializer):
     class Meta:
         model = MovieCollection
         fields = (
-            "uuid",
-            "title",
-            "description",
+            'uuid',
+            'title',
+            'description',
         )
 
 
@@ -35,7 +35,7 @@ class MovieCollectionSerializerDetailed(ModelSerializer):
     class Meta:
         model = MovieCollection
         fields = (
-            "title",
-            "description",
-            "movies",
+            'title',
+            'description',
+            'movies',
         )
