@@ -1,2 +1,4 @@
 from movie_collection.controllers.user import UserController
 from movie_collection.controllers.movies import MoviesController
+from movie_collection.controllers import movie_collection as MovieCollectionController
+from movie_collection.controllers import request_counter as RequestCounterController
