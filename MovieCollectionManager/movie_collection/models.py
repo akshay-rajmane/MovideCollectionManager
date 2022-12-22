@@ -23,7 +23,7 @@ class Movie(models.Model):
 
 class MovieCollection(models.Model):
     uuid = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False, db_index=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="movie_collections")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='movie_collections')
     title = models.CharField(max_length=200)
     description = models.TextField()
     movies = models.ManyToManyField(Movie)

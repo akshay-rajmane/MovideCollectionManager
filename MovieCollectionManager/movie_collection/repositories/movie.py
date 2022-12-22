@@ -15,7 +15,7 @@ def get_or_create(uuid: str, title: str, description: str, genres: str):
         description=description,
     )
     if genres:
-        genre_names = [genre_name for genre_name in genres.split(",") if genre_name]
+        genre_names = [genre_name for genre_name in genres.split(',') if genre_name]
         for genre_name in genre_names:
             success, genre = genre_repo.get_or_create(genre_name=genre_name)
             if success:

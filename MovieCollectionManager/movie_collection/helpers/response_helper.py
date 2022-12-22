@@ -7,4 +7,4 @@ class JSONResponse(HttpResponse):
 
     def __init__(self, data: dict, **kwargs):
         content = JSONRenderer().render(data)
-        super(JSONResponse, self).__init__(content, content_type="application/json", **kwargs)
+        super(JSONResponse, self).__init__(content, content_type='application/json', **kwargs)

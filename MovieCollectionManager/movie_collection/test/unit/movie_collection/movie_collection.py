@@ -13,7 +13,7 @@ class MovieCollectionTests(TestCase):
         GET_MOVIES_RESPONSE = json.load(json_file)
 
     def create_test_user(self):
-        user = User(username="testuser", password="12345")
+        user = User(username='testuser', password='12345')
         user.save()
         self.test_user = user
 
@@ -26,7 +26,7 @@ class MovieCollectionTests(TestCase):
             movies_data=movies_data,
         )
         if not success:
-            raise Exception("Failed to create MovieCollection")
+            raise Exception('Failed to create MovieCollection')
         self.movie_collection = movie_collection
 
     def test_create_movie_collection(self):
@@ -40,7 +40,7 @@ class MovieCollectionTests(TestCase):
         total_unique_genres = set(
             [
                 genre_name for movie_data in movies_data[:4]
-                for genre_name in movie_data.get("genres").split(",")
+                for genre_name in movie_data.get('genres').split(',')
                 if genre_name
             ]
         )
@@ -48,7 +48,7 @@ class MovieCollectionTests(TestCase):
             len(total_unique_genres),
             self.movie_collection.movies.filter(
                 genres__isnull=False
-            ).values_list("genres__name", flat=True).distinct().count()
+            ).values_list('genres__name', flat=True).distinct().count()
         )
 
     def create_multiple_movie_collections(self):
@@ -65,7 +65,7 @@ class MovieCollectionTests(TestCase):
                 movies_data=movies_data,
             )
             if not success:
-                raise Exception("Failed to create MovieCollection")
+                raise Exception('Failed to create MovieCollection')
             self.movie_collections.append(movie_collection)
         return len(start_indices)
 

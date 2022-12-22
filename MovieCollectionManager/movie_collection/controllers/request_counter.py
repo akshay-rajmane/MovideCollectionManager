@@ -5,7 +5,7 @@ from rest_framework.decorators import api_view
 from MovieCollectionManager.settings import REQUEST_COUNT_CACHE_KEY
 from movie_collection.helpers.response_helper import JSONResponse
 
-@api_view(["GET"])
+@api_view(['GET'])
 @login_required
 def get_request_count(request):
     return JSONResponse(
@@ -14,11 +14,11 @@ def get_request_count(request):
     )
 
 
-@api_view(["POST"])
+@api_view(['POST'])
 @login_required
 def reset_request_count(request):
     cache.set(REQUEST_COUNT_CACHE_KEY, 0, timeout=None)
     return JSONResponse(
-        data={'message': "Request count reset successfully"},
+        data={'message': 'Request count reset successfully'},
         status=200
     )

@@ -6,7 +6,7 @@ from movie_collection.helpers.response_helper import JSONResponse
 
 class UserController:
     @staticmethod
-    @api_view(["POST"])
+    @api_view(['POST'])
     def register(request):
         request_data = request.data
         if not request_data.get('username') or not request_data.get('password'):
@@ -32,7 +32,7 @@ class UserController:
 
 
     @staticmethod
-    @api_view(["POST"])
+    @api_view(['POST'])
     def login_user(request):
         request_data = request.data
         if not request_data.get('username') or not request_data.get('password'):
