@@ -43,7 +43,7 @@ def get_user_movie_collections(request):
     )
     if not success:
         return JSONResponse(
-            data={"is_success": success, 'message': 'Failed to fetch collections'},
+            data={"is_success": success, 'message': response if response else 'Failed to fetch collections'},
             status=500
         )
 
@@ -73,7 +73,7 @@ def get_user_movie_collection_by_uuid(request, uuid: str):
     )
     if not success:
         return JSONResponse(
-            data={'message': 'Failed to fetch collection'},
+            data={'message': response if response else 'Failed to fetch collection'},
             status=500
         )
 
@@ -130,7 +130,7 @@ def delete_user_movie_collection(request, uuid):
     )
     if not success:
         return JSONResponse(
-            data={'message': 'Failed to delete collection'},
+            data={'message': response if response else 'Failed to delete collection'},
             status=500
         )
 

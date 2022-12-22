@@ -17,7 +17,7 @@ def get_request_count(request):
 @api_view(["POST"])
 @login_required
 def reset_request_count(request):
-    cache.set(REQUEST_COUNT_CACHE_KEY, 0)
+    cache.set(REQUEST_COUNT_CACHE_KEY, 0, timeout=None)
     return JSONResponse(
         data={'message': "Request count reset successfully"},
         status=200
