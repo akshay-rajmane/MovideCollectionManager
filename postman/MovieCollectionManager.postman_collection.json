@@ -1,0 +1,1175 @@
+{
+	"info": {
+		"_postman_id": "30e57348-30f9-4580-b235-379b2f2f5894",
+		"name": "MovieCollectionManager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "0. Register new user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"pm.environment.set(\"auth_token\", data.access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"test-user-3\",\n    \"password\": \"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/register/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"register",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SUCCESS",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"test-user-3\",\n    \"password\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/register/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"register",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 22 Dec 2022 02:34:54 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "247"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcxNjc2Nzk0LCJpYXQiOjE2NzE2NzY0OTQsImp0aSI6IjA4NTRkYjRmYjlkNjQ3OTliOTFlY2RjY2I3NmIzYmI2IiwidXNlcl9pZCI6NH0.y1B9LgTjTvPu1_ogsPzIsdyBUFnyN-m7iTvr7s4Iabs\"\n}"
+				}
+			]
+		},
+		{
+			"name": "0.1. Login user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"pm.environment.set(\"auth_token\", data.access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"test-user-2\",\n    \"password\": \"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/login/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"login",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SUCCESS",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"test-user-2\",\n    \"password\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/login/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"login",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 22 Dec 2022 02:36:46 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "247"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcxNjc2OTA2LCJpYXQiOjE2NzE2NzY2MDYsImp0aSI6ImVjYWJkZjQyZGUxNDQ5OGI4Nzc1OGQzYjkyMTYxNWQxIiwidXNlcl9pZCI6M30.GIthkocfjoEFGfSkug1p_7QyKnTh66C2Kc9u3fkkP4A\"\n}"
+				}
+			]
+		},
+		{
+			"name": "1. Get Movies ",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{auth_token}}",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/movies/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"movies",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SUCCESS - First Page",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/movies/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 22 Dec 2022 02:07:11 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "3713"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"count\": 45466,\n    \"next\": \"https://demo.credy.in/api/v1/maya/movies/?page=2\",\n    \"previous\": null,\n    \"results\": [\n        {\n            \"title\": \"Queerama\",\n            \"description\": \"50 years after decriminalisation of homosexuality in the UK, director Daisy Asquith mines the jewels of the BFI archive to take us into the relationships, desires, fears and expressions of gay men and women in the 20th century.\",\n            \"genres\": \"\",\n            \"uuid\": \"57baf4f4-c9ef-4197-9e4f-acf04eae5b4d\"\n        },\n        {\n            \"title\": \"Satana likuyushchiy\",\n            \"description\": \"In a small town live two brothers, one a minister and the other one a hunchback painter of the chapel who lives with his wife. One dreadful and stormy night, a stranger knocks at the door asking for shelter. The stranger talks about all the good things of the earthly life the minister is missing because of his puritanical faith. The minister comes to accept the stranger's viewpoint but it is others who will pay the consequences because the minister will discover the human pleasures thanks to, ehem, his sister- in -law… The tormented minister and his cuckolded brother will die in a strange accident in the chapel and later an infant will be born from the minister's adulterous relationship.\",\n            \"genres\": \"\",\n            \"uuid\": \"163ce013-03e2-47e9-8afd-e7de7688c151\"\n        },\n        {\n            \"title\": \"Betrayal\",\n            \"description\": \"When one of her hits goes wrong, a professional assassin ends up with a suitcase full of a million dollars belonging to a mob boss ...\",\n            \"genres\": \"Action,Drama,Thriller\",\n            \"uuid\": \"720e8796-5397-4e81-9bd7-763789463707\"\n        },\n        {\n            \"title\": \"Siglo ng Pagluluwal\",\n            \"description\": \"An artist struggles to finish his work while a storyline about a cult plays in his head.\",\n            \"genres\": \"Drama\",\n            \"uuid\": \"e9548ee7-6a95-4917-893e-1fa1d3a6de40\"\n        },\n        {\n            \"title\": \"رگ خواب\",\n            \"description\": \"Rising and falling between a man and woman.\",\n            \"genres\": \"Drama,Family\",\n            \"uuid\": \"9b0a4aa2-9ec7-4a3d-98ab-622275f44ea5\"\n        },\n        {\n            \"title\": \"Robin Hood\",\n            \"description\": \"Yet another version of the classic epic, with enough variation to make it interesting. The story is the same, but some of the characters are quite different from the usual, in particular Uma Thurman's very special maid Marian. The photography is also great, giving the story a somewhat darker tone.\",\n            \"genres\": \"Drama,Action,Romance\",\n            \"uuid\": \"73399935-2165-41f0-a6a4-1336ef5e5c20\"\n        },\n        {\n            \"title\": \"Caged Heat 3000\",\n            \"description\": \"It's the year 3000 AD. The world's most dangerous women are banished to a remote asteroid 45 million light years from earth. Kira Murphy doesn't belong; wrongfully accused of a crime she did not commit, she's thrown in this interplanetary prison and left to her own defenses. But Kira's a fighter, and soon she finds herself in the middle of a female gang war; where everyone wants a piece of the action... and a piece of her! \\\"Caged Heat 3000\\\" takes the Women-in-Prison genre to a whole new level... and a whole new galaxy!\",\n            \"genres\": \"Science Fiction\",\n            \"uuid\": \"129cf5d9-827c-4e42-843e-1f87ef99452f\"\n        },\n        {\n            \"title\": \"The Burkittsville 7\",\n            \"description\": \"A film archivist revisits the story of Rustin Parr, a hermit thought to have murdered seven children while under the possession of the Blair Witch.\",\n            \"genres\": \"Horror\",\n            \"uuid\": \"5e904ce8-91b7-42b4-84d9-5b53f4cb8c74\"\n        },\n        {\n            \"title\": \"Shadow of the Blair Witch\",\n            \"description\": \"In this true-crime documentary, we delve into the murder spree that was the inspiration for Joe Berlinger's \\\"Book of Shadows: Blair Witch 2\\\".\",\n            \"genres\": \"Mystery,Horror\",\n            \"uuid\": \"bcacfa33-a886-4ecb-a62a-6bbcb9d9509d\"\n        },\n        {\n            \"title\": \"House of Horrors\",\n            \"description\": \"An unsuccessful sculptor saves a madman named \\\"The Creeper\\\" from drowning. Seeing an opportunity for revenge, he tricks the psycho into murdering his critics.\",\n            \"genres\": \"Horror,Mystery,Thriller\",\n            \"uuid\": \"388c99da-0cba-4ff0-a528-faea153b43c3\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "2. Create a new Movie collection",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{auth_token}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"My Collection 23\",\n    \"description\": \"An duplicate collection\",\n    \"movies\": [\n        {\n            \"title\": \"Betrayal\",\n            \"description\": \"When one of her hits goes wrong, a professional assassin ends up with a suitcase full of a million dollars belonging to a mob boss ...\",\n            \"genres\": \"Action,Drama,Thriller\",\n            \"uuid\": \"720e8796-5397-4e81-9bd7-763789463707\"\n        },\n        {\n            \"title\": \"Siglo ng Pagluluwal\",\n            \"description\": \"An artist struggles to finish his work while a storyline about a cult plays in his head.\",\n            \"genres\": \"Drama\",\n            \"uuid\": \"e9548ee7-6a95-4917-893e-1fa1d3a6de40\"\n        },\n        {\n            \"title\": \"\\u0631\\u06af \\u062e\\u0648\\u0627\\u0628\",\n            \"description\": \"Rising and falling between a man and woman.\",\n            \"genres\": \"Drama,Family\",\n            \"uuid\": \"9b0a4aa2-9ec7-4a3d-98ab-622275f44ea5\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/collection/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"collection",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SUCCESS",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"My Collection 23\",\n    \"description\": \"An duplicate collection\",\n    \"movies\": [\n        {\n            \"title\": \"Betrayal\",\n            \"description\": \"When one of her hits goes wrong, a professional assassin ends up with a suitcase full of a million dollars belonging to a mob boss ...\",\n            \"genres\": \"Action,Drama,Thriller\",\n            \"uuid\": \"720e8796-5397-4e81-9bd7-763789463707\"\n        },\n        {\n            \"title\": \"Siglo ng Pagluluwal\",\n            \"description\": \"An artist struggles to finish his work while a storyline about a cult plays in his head.\",\n            \"genres\": \"Drama\",\n            \"uuid\": \"e9548ee7-6a95-4917-893e-1fa1d3a6de40\"\n        },\n        {\n            \"title\": \"\\u0631\\u06af \\u062e\\u0648\\u0627\\u0628\",\n            \"description\": \"Rising and falling between a man and woman.\",\n            \"genres\": \"Drama,Family\",\n            \"uuid\": \"9b0a4aa2-9ec7-4a3d-98ab-622275f44ea5\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/collection/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"collection",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 22 Dec 2022 02:37:42 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "DELETE, PUT, POST, GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "58"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"collection_uuid\": \"a0ed48bb-d3d0-43bf-bb66-c65a779c980b\"\n}"
+				}
+			]
+		},
+		{
+			"name": "3. Get User Collections",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{auth_token}}",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/collection/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"collection",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SUCCESS",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/collection/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"collection",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 22 Dec 2022 02:38:04 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "DELETE, PUT, POST, GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "570"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"is_success\": true,\n    \"data\": {\n        \"collections\": [\n            {\n                \"uuid\": \"5cc11dde-38e0-449c-a4cf-5f5a146144b8\",\n                \"title\": \"My Collection 2\",\n                \"description\": \"An next bigger collection\"\n            },\n            {\n                \"uuid\": \"ec9e53d7-c943-4811-88bb-d870e8757f9a\",\n                \"title\": \"My Collection 3-v3\",\n                \"description\": \"This is an extending collection\"\n            },\n            {\n                \"uuid\": \"0630ca10-6d65-48e8-8881-63391a93d4a7\",\n                \"title\": \"My Collection 3-v2\",\n                \"description\": \"This is an extending collection\"\n            },\n            {\n                \"uuid\": \"a0ed48bb-d3d0-43bf-bb66-c65a779c980b\",\n                \"title\": \"My Collection 23\",\n                \"description\": \"An duplicate collection\"\n            }\n        ],\n        \"favourite_genres\": [\n            \"Drama\",\n            \"Drama\",\n            \"Drama\"\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "4. Update Existing Movie Collection",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{auth_token}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"This is an extending collection\",\n    \"movies\": [\n        {\n            \"title\": \"Robin Hood\",\n            \"description\": \"Yet another version of the classic epic, with enough variation to make it interesting. The story is the same, but some of the characters are quite different from the usual, in particular Uma Thurman's very special maid Marian. The photography is also great, giving the story a somewhat darker tone.\",\n            \"genres\": \"Drama,Action,Romance\",\n            \"uuid\": \"73399935-2165-41f0-a6a4-1336ef5e5c20\"\n        },\n        {\n            \"title\": \"Caged Heat 3000\",\n            \"description\": \"It's the year 3000 AD. The world's most dangerous women are banished to a remote asteroid 45 million light years from earth. Kira Murphy doesn't belong; wrongfully accused of a crime she did not commit, she's thrown in this interplanetary prison and left to her own defenses. But Kira's a fighter, and soon she finds herself in the middle of a female gang war; where everyone wants a piece of the action... and a piece of her! \\\"Caged Heat 3000\\\" takes the Women-in-Prison genre to a whole new level... and a whole new galaxy!\",\n            \"genres\": \"Science Fiction\",\n            \"uuid\": \"129cf5d9-827c-4e42-843e-1f87ef99452f\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/collection/:uuid/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"collection",
+						":uuid",
+						""
+					],
+					"variable": [
+						{
+							"key": "uuid",
+							"value": "ec9e53d7-c943-4811-88bb-d870e8757f9a"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SUCCESS",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"This is an extending collection\",\n    \"movies\": [\n        {\n            \"title\": \"Robin Hood\",\n            \"description\": \"Yet another version of the classic epic, with enough variation to make it interesting. The story is the same, but some of the characters are quite different from the usual, in particular Uma Thurman's very special maid Marian. The photography is also great, giving the story a somewhat darker tone.\",\n            \"genres\": \"Drama,Action,Romance\",\n            \"uuid\": \"73399935-2165-41f0-a6a4-1336ef5e5c20\"\n        },\n        {\n            \"title\": \"Caged Heat 3000\",\n            \"description\": \"It's the year 3000 AD. The world's most dangerous women are banished to a remote asteroid 45 million light years from earth. Kira Murphy doesn't belong; wrongfully accused of a crime she did not commit, she's thrown in this interplanetary prison and left to her own defenses. But Kira's a fighter, and soon she finds herself in the middle of a female gang war; where everyone wants a piece of the action... and a piece of her! \\\"Caged Heat 3000\\\" takes the Women-in-Prison genre to a whole new level... and a whole new galaxy!\",\n            \"genres\": \"Science Fiction\",\n            \"uuid\": \"129cf5d9-827c-4e42-843e-1f87ef99452f\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/collection/:uuid/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"collection",
+								":uuid",
+								""
+							],
+							"variable": [
+								{
+									"key": "uuid",
+									"value": "ec9e53d7-c943-4811-88bb-d870e8757f9a"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 22 Dec 2022 02:38:26 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "DELETE, PUT, POST, GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1776"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"title\": \"My Collection 3-v3\",\n    \"description\": \"This is an extending collection\",\n    \"movies\": [\n        {\n            \"uuid\": \"129cf5d9-827c-4e42-843e-1f87ef99452f\",\n            \"title\": \"Caged Heat 3000\",\n            \"description\": \"It's the year 3000 AD. The world's most dangerous women are banished to a remote asteroid 45 million light years from earth. Kira Murphy doesn't belong; wrongfully accused of a crime she did not commit, she's thrown in this interplanetary prison and left to her own defenses. But Kira's a fighter, and soon she finds herself in the middle of a female gang war; where everyone wants a piece of the action... and a piece of her! \\\"Caged Heat 3000\\\" takes the Women-in-Prison genre to a whole new level... and a whole new galaxy!\",\n            \"genres\": [\n                \"Science Fiction\"\n            ]\n        },\n        {\n            \"uuid\": \"720e8796-5397-4e81-9bd7-763789463707\",\n            \"title\": \"Betrayal\",\n            \"description\": \"When one of her hits goes wrong, a professional assassin ends up with a suitcase full of a million dollars belonging to a mob boss ...\",\n            \"genres\": [\n                \"Action\",\n                \"Drama\",\n                \"Thriller\"\n            ]\n        },\n        {\n            \"uuid\": \"73399935-2165-41f0-a6a4-1336ef5e5c20\",\n            \"title\": \"Robin Hood\",\n            \"description\": \"Yet another version of the classic epic, with enough variation to make it interesting. The story is the same, but some of the characters are quite different from the usual, in particular Uma Thurman's very special maid Marian. The photography is also great, giving the story a somewhat darker tone.\",\n            \"genres\": [\n                \"Action\",\n                \"Drama\",\n                \"Romance\"\n            ]\n        },\n        {\n            \"uuid\": \"9b0a4aa2-9ec7-4a3d-98ab-622275f44ea5\",\n            \"title\": \"رگ خواب\",\n            \"description\": \"Rising and falling between a man and woman.\",\n            \"genres\": [\n                \"Drama\",\n                \"Family\"\n            ]\n        },\n        {\n            \"uuid\": \"e9548ee7-6a95-4917-893e-1fa1d3a6de40\",\n            \"title\": \"Siglo ng Pagluluwal\",\n            \"description\": \"An artist struggles to finish his work while a storyline about a cult plays in his head.\",\n            \"genres\": [\n                \"Drama\"\n            ]\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "5. Get Movie Collection Detail",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{auth_token}}",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/collection/:uuid/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"collection",
+						":uuid",
+						""
+					],
+					"variable": [
+						{
+							"key": "uuid",
+							"value": "0630ca10-6d65-48e8-8881-63391a93d4a7"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SUCCESS",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/collection/:uuid/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"collection",
+								":uuid",
+								""
+							],
+							"variable": [
+								{
+									"key": "uuid",
+									"value": "0630ca10-6d65-48e8-8881-63391a93d4a7"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 22 Dec 2022 02:38:49 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "DELETE, PUT, POST, GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1157"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"title\": \"My Collection 3-v2\",\n    \"description\": \"This is an extending collection\",\n    \"movies\": [\n        {\n            \"uuid\": \"129cf5d9-827c-4e42-843e-1f87ef99452f\",\n            \"title\": \"Caged Heat 3000\",\n            \"description\": \"It's the year 3000 AD. The world's most dangerous women are banished to a remote asteroid 45 million light years from earth. Kira Murphy doesn't belong; wrongfully accused of a crime she did not commit, she's thrown in this interplanetary prison and left to her own defenses. But Kira's a fighter, and soon she finds herself in the middle of a female gang war; where everyone wants a piece of the action... and a piece of her! \\\"Caged Heat 3000\\\" takes the Women-in-Prison genre to a whole new level... and a whole new galaxy!\",\n            \"genres\": [\n                \"Science Fiction\"\n            ]\n        },\n        {\n            \"uuid\": \"73399935-2165-41f0-a6a4-1336ef5e5c20\",\n            \"title\": \"Robin Hood\",\n            \"description\": \"Yet another version of the classic epic, with enough variation to make it interesting. The story is the same, but some of the characters are quite different from the usual, in particular Uma Thurman's very special maid Marian. The photography is also great, giving the story a somewhat darker tone.\",\n            \"genres\": [\n                \"Action\",\n                \"Drama\",\n                \"Romance\"\n            ]\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "6. Delete User Movie Collection",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{auth_token}}",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/collection/:uuid/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"collection",
+						":uuid",
+						""
+					],
+					"variable": [
+						{
+							"key": "uuid",
+							"value": "a0ed48bb-d3d0-43bf-bb66-c65a779c980b"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "FAIL - Collection not found",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/collection/:uuid/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"collection",
+								":uuid",
+								""
+							],
+							"variable": [
+								{
+									"key": "uuid",
+									"value": "016aab82-4154-4d74-86fc-683a2837db7f"
+								}
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 22 Dec 2022 02:40:18 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, GET, OPTIONS, DELETE, PUT"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "34"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Collection not found\"\n}"
+				},
+				{
+					"name": "SUCCESS",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/collection/:uuid/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"collection",
+								":uuid",
+								""
+							],
+							"variable": [
+								{
+									"key": "uuid",
+									"value": "a0ed48bb-d3d0-43bf-bb66-c65a779c980b"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 22 Dec 2022 02:41:04 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, GET, OPTIONS, DELETE, PUT"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "66"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"deleted_collection_uuid\": \"a0ed48bb-d3d0-43bf-bb66-c65a779c980b\"\n}"
+				}
+			]
+		},
+		{
+			"name": "7. Get Request Count",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{auth_token}}",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/request-count/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"request-count",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SUCCESS",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/request-count/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"request-count",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 22 Dec 2022 02:42:46 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "14"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"requests\": 6\n}"
+				}
+			]
+		},
+		{
+			"name": "8. Reset Request Count",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{auth_token}}",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/request-count/reset/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"request-count",
+						"reset",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SUCCESS",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/request-count/reset/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"request-count",
+								"reset",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 22 Dec 2022 02:24:54 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "46"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Request count reset successfully\"\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
